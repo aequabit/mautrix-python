@@ -99,7 +99,7 @@ class BasePortal(ABC):
 
     @abstractmethod
     async def handle_matrix_message(
-        self, sender: br.BaseUser, message: MessageEventContent, event_id: EventID
+        self, sender: br.BaseUser, message: MessageEventContent, room_id: RoomID, event_id: EventID
     ) -> None:
         pass
 

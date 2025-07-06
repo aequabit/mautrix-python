@@ -663,10 +663,10 @@ class BaseMatrixHandler:
         portal = await self.bridge.get_portal(room_id)
         if not is_command and portal:
             if await self.allow_bridging_message(sender, portal):
-                await portal.handle_matrix_message(sender, message, event_id)
+                await portal.handle_matrix_message(sender, message, room_id, event_id)
             else:
                 self.log.debug(
-                    f"Ignoring event {event_id} from {sender.mxid}:"
+                    f"Ignoring event {event_id} from {sender.mxid} in {room_id}:"
                     " not allowed to send to portal"
                 )
                 self._send_message_checkpoint(
